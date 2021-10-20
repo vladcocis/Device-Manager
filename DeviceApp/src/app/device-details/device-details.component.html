@@ -1,0 +1,47 @@
+<!-- Device-details component -->
+<!-- Contains form on one side and device list on other side -->
+
+<div class="jumbotron py-3">
+  <h1 class="display-4 text-center">Device Manager</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-5">
+    <!-- Display device-detail-form component -->
+    <app-device-detail-form></app-device-detail-form>
+  </div>
+
+  <div class="col-md-7">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>Device Name</th>
+          <th>Manufacturer</th>
+          <th>Device Type</th>
+          <th>OS</th>
+          <th>OS Version</th>
+          <th>Processor</th>
+          <th>RAM</th>
+          <th>User</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- dd is device details object -->
+        <tr *ngFor="let dd of service.list">
+          <td (click)="populateForm(dd)">{{dd.deviceName}}</td>
+          <td (click)="populateForm(dd)">{{dd.manufacturer}}</td>
+          <td (click)="populateForm(dd)">{{dd.deviceType}}</td>
+          <td (click)="populateForm(dd)">{{dd.os}}</td>
+          <td (click)="populateForm(dd)">{{dd.osVersion}}</td>
+          <td (click)="populateForm(dd)">{{dd.processor}}</td>
+          <td (click)="populateForm(dd)">{{dd.ram}}</td>
+          <td (click)="populateForm(dd)">{{dd.userID}}</td>
+          <td>
+            <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(dd.deviceDetailID)"></i>    
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

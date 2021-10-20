@@ -1,0 +1,136 @@
+<!-- Device-details-form component -->
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+  <!-- deviceDetailID is hidden to ensure it is set to 0 when creating a new object, for automatic incrementation in db -->
+  <input
+    type="hidden"
+    name="deviceDetailID"
+    [value]="service.formData.deviceDetailID"
+  />
+  <!-- Form fields with validation -->
+  <div class="form-group">
+    <label>DEVICE NAME</label>
+    <input
+      class="form-control form-control-lg"
+      placeholder="Device Name"
+      name="deviceName"
+      #deviceName="ngModel"
+      [(ngModel)]="service.formData.deviceName"
+      required
+      maxlength="100"
+      [class.invalid]="deviceName.invalid && deviceName.touched"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Manufacturer</label>
+    <input
+      class="form-control form-control-lg"
+      placeholder="Manufacturer"
+      name="manufacturer"
+      #manufacturer="ngModel"
+      [(ngModel)]="service.formData.manufacturer"
+      required
+      maxlength="50"
+      [class.invalid]="manufacturer.invalid && manufacturer.touched"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>DEVICE TYPE</label>
+    <input
+      class="form-control form-control-lg"
+      placeholder="Device Type"
+      name="deviceType"
+      #deviceType="ngModel"
+      [(ngModel)]="service.formData.deviceType"
+      required
+      maxlength="50"
+      [class.invalid]="deviceType.invalid && deviceType.touched"
+    />
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>OS</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="OS"
+        name="os"
+        #os="ngModel"
+        [(ngModel)]="service.formData.os"
+        required
+        maxlength="50"
+        [class.invalid]="os.invalid && os.touched"
+      />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>OS VERSION</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="OS Version"
+        name="osVersion"
+        #osVersion="ngModel"
+        [(ngModel)]="service.formData.osVersion"
+        required
+        maxlength="10"
+        [class.invalid]="osVersion.invalid && osVersion.touched"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <label>PROCESSOR</label>
+    <input
+      class="form-control form-control-lg"
+      placeholder="Processor"
+      name="processor"
+      #processor="ngModel"
+      [(ngModel)]="service.formData.processor"
+      required
+      maxlength="50"
+      [class.invalid]="processor.invalid && processor.touched"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>RAM</label>
+    <input
+      type="text"
+      pattern="\d*"
+      maxlength="2"
+      class="form-control form-control-lg"
+      placeholder="RAM"
+      name="ram"
+      #ram="ngModel"
+      [(ngModel)]="service.formData.ram"
+      required
+      maxlength="2"
+      [class.invalid]="ram.invalid && ram.touched"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>USER ID</label>
+    <input
+    type="text"
+    pattern="\d*"
+    maxlength="100"
+      class="form-control form-control-lg"
+      placeholder="0"
+      name="userID"
+      #userID="ngModel"
+      [(ngModel)]="service.formData.userID"
+      [class.invalid]="userID.invalid"
+    />
+  </div>
+
+  <!-- Submit button for form -->
+  <div class="form-group">
+    <button
+      class="btn btn-primary btn-lg w-100 mt-4"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>
