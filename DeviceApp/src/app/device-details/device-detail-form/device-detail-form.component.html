@@ -37,30 +37,36 @@
 
   <div class="form-group">
     <label>DEVICE TYPE</label>
-    <input
+    <select
       class="form-control form-control-lg"
-      placeholder="Device Type"
       name="deviceType"
       #deviceType="ngModel"
       [(ngModel)]="service.formData.deviceType"
       required
-      maxlength="50"
       [class.invalid]="deviceType.invalid && deviceType.touched"
-    />
+    >
+    <option disabled="disabled" value="">---Please select---</option>
+      <option value="Phone">Phone</option>
+      <option value="Tablet">Tablet</option>
+    </select>
   </div>
   <div class="row">
     <div class="form-group col-md-6">
       <label>OS</label>
-      <input
+      <select
         class="form-control form-control-lg"
-        placeholder="OS"
         name="os"
         #os="ngModel"
         [(ngModel)]="service.formData.os"
         required
-        maxlength="50"
         [class.invalid]="os.invalid && os.touched"
-      />
+      >
+      <option disabled="disabled" value="">---Please select---</option>
+      <option value="Android">Android</option>
+      <option value="iOS">iOS</option>
+      <option value="iPad OS">iPad OS</option>
+      <option value="Windows">Windows</option>
+      </select>
     </div>
 
     <div class="form-group col-md-6">
